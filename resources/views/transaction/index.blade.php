@@ -28,6 +28,8 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $transactions->links() }}
+
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ class TransactionController extends Controller
     {
         return view('transaction.index')
             ->with([
-                'transactions' => Transaction::where('user_id',Auth::id())->get()
+                'transactions' => Transaction::where('user_id',Auth::id())->paginate(config('site-param.paginate'))
             ]);
     }
 }
