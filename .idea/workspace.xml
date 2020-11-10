@@ -11,11 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28a95f68-66e7-454b-8a9b-6ad6fb3f63dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/deposit/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/UserTransaction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepositController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepositController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/UserBalance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/UserDeposit.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,17 +148,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/transaction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/resources/views/transaction" />
       <recent name="$PROJECT_DIR$/resources/views/deposit" />
       <recent name="$PROJECT_DIR$/app/Services" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/wallet" />
     </key>
   </component>
   <component name="RunManager">
@@ -176,7 +177,7 @@
       <updated>1605004025227</updated>
       <workItem from="1605004026259" duration="131000" />
       <workItem from="1605004167677" duration="1840000" />
-      <workItem from="1605010667608" duration="11552000" />
+      <workItem from="1605010667608" duration="15190000" />
     </task>
     <servers />
   </component>
@@ -203,13 +204,13 @@
       <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state x="1017" y="299" width="574" height="867" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605016501450" />
-    <state x="1046" y="490" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605020941822">
+    <state x="1046" y="490" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605024604722">
       <screen x="67" y="27" width="2493" height="1413" />
     </state>
-    <state x="1046" y="490" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605020941822" />
-    <state x="1080" y="452" width="457" height="561" key="NewPhpClassDialog" timestamp="1605016960926">
+    <state x="1046" y="490" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605024604722" />
+    <state x="1080" y="452" width="457" height="561" key="NewPhpClassDialog" timestamp="1605024496693">
       <screen x="67" y="27" width="2493" height="1413" />
     </state>
-    <state x="1080" y="452" width="457" height="561" key="NewPhpClassDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605016960926" />
+    <state x="1080" y="452" width="457" height="561" key="NewPhpClassDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605024496693" />
   </component>
 </project>

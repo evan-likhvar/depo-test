@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDepositTransactionRequest;
-use App\Services\UserDeposit;
+use App\Services\UserTransaction;
 use Illuminate\Support\Facades\Auth;
 
 class DepositController extends Controller
@@ -32,12 +32,12 @@ class DepositController extends Controller
      * Store a newly created resource in storage.
      *
      * @param CreateDepositTransactionRequest $request
-     * @param UserDeposit $userDeposit
+     * @param UserTransaction $userTransaction
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function store(CreateDepositTransactionRequest $request, UserDeposit $userDeposit)
+    public function store(CreateDepositTransactionRequest $request, UserTransaction $userTransaction)
     {
-        $userDeposit->createDeposit(Auth::user(), $request->input('amount'));
+        $userTransaction->createDeposit(Auth::user(), $request->input('amount'));
 
         return view('home');
     }

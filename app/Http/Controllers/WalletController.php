@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EnterTransactionRequest;
 use App\Models\Wallet;
-use App\Services\UserBalance;
+use App\Services\UserTransaction;
 use Illuminate\Support\Facades\Auth;
 
 class WalletController extends Controller
@@ -24,12 +24,12 @@ class WalletController extends Controller
      * Update the specified resource in storage.
      *
      * @param EnterTransactionRequest $request
-     * @param UserBalance $userBalance
+     * @param UserTransaction $userTransaction
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function update(EnterTransactionRequest $request, UserBalance $userBalance)
+    public function update(EnterTransactionRequest $request, UserTransaction $userTransaction)
     {
-        $userBalance->addBalance(Auth::user(), $request->input('amount'));
+        $userTransaction->createEnter(Auth::user(), $request->input('amount'));
 
         return view('home');
     }
