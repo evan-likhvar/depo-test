@@ -11,12 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28a95f68-66e7-454b-8a9b-6ad6fb3f63dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/UserTransaction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepositController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepositController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/UserBalance.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/UserDeposit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +174,7 @@
       <updated>1605004025227</updated>
       <workItem from="1605004026259" duration="131000" />
       <workItem from="1605004167677" duration="1840000" />
-      <workItem from="1605010667608" duration="15190000" />
+      <workItem from="1605010667608" duration="17423000" />
     </task>
     <servers />
   </component>

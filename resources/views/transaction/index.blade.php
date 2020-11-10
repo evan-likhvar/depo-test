@@ -17,7 +17,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($user->transactions as $transaction)
+                        @foreach($transactions as $transaction)
                             <tr>
                                 <td>{{$transaction->id}}</td>
                                 <td>{{$transaction->type}}</td>

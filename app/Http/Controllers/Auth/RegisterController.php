@@ -76,6 +76,6 @@ class RegisterController extends Controller
             Wallet::create(['user_id' => $user->id]);
 
             return $user;
-        });
+        },2);
     }
 }

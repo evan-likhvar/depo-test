@@ -15,7 +15,7 @@ class DepositController extends Controller
      */
     public function index()
     {
-        return view('deposit.index')->with(['user'=>Auth::user()]);
+        return view('deposit.index')->with(['user' => Auth::user()]);
     }
 
     /**
@@ -33,11 +33,15 @@ class DepositController extends Controller
      *
      * @param CreateDepositTransactionRequest $request
      * @param UserTransaction $userTransaction
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function store(CreateDepositTransactionRequest $request, UserTransaction $userTransaction)
     {
-        $userTransaction->createDeposit(Auth::user(), $request->input('amount'));
+        try {
+            $userTransaction->createDeposit(Auth::user(), $request->input('amount'));
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
 
         return view('home');
     }

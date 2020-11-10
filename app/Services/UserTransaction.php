@@ -14,7 +14,7 @@ class UserTransaction
      * @param User $user
      * @param float $amount
      */
-    public function createEnter(User $user, float $amount)
+    public function createEnter(User $user, float $amount): void
     {
         DB::transaction(function () use ($user, $amount) {
 
@@ -35,7 +35,7 @@ class UserTransaction
      * @param User $user
      * @param float $amount
      */
-    public function createDeposit(User $user, float $amount)
+    public function createDeposit(User $user, float $amount): void
     {
         DB::transaction(function () use ($user, $amount) {
 
@@ -68,7 +68,7 @@ class UserTransaction
     /**
      * @param Deposit $deposit
      */
-    public function createAccrue(Deposit $deposit)
+    public function createAccrue(Deposit $deposit): void
     {
         DB::transaction(function () use ($deposit) {
             $amount = $deposit->invested * $deposit->percent / 100;
@@ -80,13 +80,12 @@ class UserTransaction
             $deposit->accrue_times += 1;
             if ($deposit->accrue_times >= config('site-param.max_accrue_times'))
                 $deposit->active = 0;
-
             $deposit->save();
 
             $this->createTransaction([
-                'type' => $deposit->accrue <= config('site-param.max_accrue_times')
-                    ? Transaction::TRANSACTION_ACCRUE
-                    : Transaction::TRANSACTION_CLOSE_DEPOSIT,
+                'type' => $deposit->accrue_times >= config('site-param.max_accrue_times')
+                    ? Transaction::TRANSACTION_CLOSE_DEPOSIT
+                    : Transaction::TRANSACTION_ACCRUE,
                 'wallet_id' => $deposit->wallet_id,
                 'amount' => $amount,
                 'deposit_id' => $deposit->id,

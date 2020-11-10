@@ -8,9 +8,9 @@
                 <div class="card-header">{{ __('Create deposit') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
                         </div>
                     @endif
 
