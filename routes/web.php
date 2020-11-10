@@ -24,3 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'edit'])->middleware('auth')->name('wallet.enter.get');
 Route::post('/wallet', [App\Http\Controllers\WalletController::class, 'update'])->middleware('auth')->name('wallet.enter.post');
+
+Route::get('/deposit', [App\Http\Controllers\DepositController::class, 'create'])->middleware('auth')->name('deposit.create.get');
+Route::post('/deposit', [App\Http\Controllers\DepositController::class, 'store'])->middleware('auth')->name('deposit.create.post');

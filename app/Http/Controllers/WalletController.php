@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EnterTransactionRequest;
 use App\Models\Wallet;
 use App\Services\UserBalance;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class WalletController extends Controller

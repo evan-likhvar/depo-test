@@ -57,6 +57,10 @@
                                 <a class="nav-link" href="{{ route('wallet.enter.get') }}">{{ __('Add to wallet') }}</a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('deposit.create.get') }}">{{ __('Create deposit') }}</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     User balance:&nbsp;{{Auth::user()->wallet->balance}}&nbsp;&nbsp;&nbsp;&nbsp;{{ Auth::user()->name }}

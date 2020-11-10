@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Deposit;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateDepositTransactionRequest;
+use App\Services\UserDeposit;
+use Illuminate\Support\Facades\Auth;
 
 class DepositController extends Controller
 {
@@ -20,66 +21,24 @@ class DepositController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('deposit.deposit');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateDepositTransactionRequest $request
+     * @param UserDeposit $userDeposit
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateDepositTransactionRequest $request, UserDeposit $userDeposit)
     {
-        //
-    }
+        $userDeposit->createDeposit(Auth::user(), $request->input('amount'));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Deposit  $deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Deposit $deposit)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Deposit  $deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Deposit $deposit)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Deposit  $deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Deposit $deposit)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Deposit  $deposit
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Deposit $deposit)
-    {
-        //
+        return view('home');
     }
 }

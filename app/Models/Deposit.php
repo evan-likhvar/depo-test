@@ -9,6 +9,8 @@ class Deposit extends Model
 {
     use HasFactory;
 
+    const DEFAULT_PERCENT = 20;
+
     /**
      * The attributes that are mass assignable.
      *
