@@ -9,6 +9,11 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    const TRANSACTION_ENTER = 'enter';
+    const TRANSACTION_CREATE_DEPOSIT = 'create_deposit';
+    const TRANSACTION_ACCRUE = 'accrue';
+    const TRANSACTION_CLOSE_DEPOSIT = 'close_deposit';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,6 +23,7 @@ class Transaction extends Model
         'user_id',
         'wallet_id',
         'deposit_id',
+        'type',
         'amount',
     ];
 

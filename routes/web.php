@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'edit'])->middleware('auth')->name('wallet.enter.get');
+Route::post('/wallet', [App\Http\Controllers\WalletController::class, 'update'])->middleware('auth')->name('wallet.enter.post');
