@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28a95f68-66e7-454b-8a9b-6ad6fb3f63dc" name="Default Changelist" comment="" />
+    <list default="true" id="28a95f68-66e7-454b-8a9b-6ad6fb3f63dc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Deposit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Deposit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Wallet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_10_103911_create_wallets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_103911_create_wallets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_10_103929_create_deposits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_103929_create_deposits_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_10_103943_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_103943_create_transactions_table.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +159,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605004025227</updated>
       <workItem from="1605004026259" duration="131000" />
-      <workItem from="1605004167677" duration="350000" />
+      <workItem from="1605004167677" duration="1840000" />
+      <workItem from="1605010667608" duration="1735000" />
     </task>
     <servers />
   </component>

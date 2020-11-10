@@ -15,11 +15,11 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('type',30);
+            $table->string('type',30)->index();
             $table->unsignedBigInteger('user_id')->index();
             $table->unsignedBigInteger('wallet_id')->index();
-            $table->unsignedBigInteger('deposit_id')->index();
-            $table->float('amount')->default(0);
+            $table->unsignedBigInteger('deposit_id')->index()->nullable();
+            $table->double('amount')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
