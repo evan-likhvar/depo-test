@@ -19,9 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'edit'])->name('wallet.enter.get');
     Route::post('/wallet', [App\Http\Controllers\WalletController::class, 'update'])->name('wallet.enter.post');
     Route::get('/deposit', [App\Http\Controllers\DepositController::class, 'create'])->name('deposit.create.get');

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Deposit;
 use App\Services\UserTransaction;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class AccrueTransaction extends Command
 {
@@ -40,10 +41,14 @@ class AccrueTransaction extends Command
      */
     public function handle(UserTransaction $userTransaction)
     {
-        $deposits = Deposit::where('active', 1)->get();
+        $deposits = Deposit::where('active',1)->where('accrue_times','<', config('site-param.max_accrue_times'))->get();
 
         foreach ($deposits as $deposit) {
-            $userTransaction->createAccrue($deposit);
+            try {
+                $userTransaction->createAccrue($deposit);
+            } catch (\Exception $exception) {
+                Log::error($exception->getMessage());
+            }
         }
 
         return 0;

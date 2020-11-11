@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EnterTransactionRequest;
-use App\Models\Wallet;
 use App\Services\UserTransaction;
 use Illuminate\Support\Facades\Auth;
 
