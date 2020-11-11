@@ -12,12 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="28a95f68-66e7-454b-8a9b-6ad6fb3f63dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/AccrueTransaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/AccrueTransaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_10_103929_create_deposits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_10_103929_create_deposits_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +175,7 @@
       <workItem from="1605010667608" duration="19844000" />
       <workItem from="1605032862118" duration="624000" />
       <workItem from="1605033507534" duration="569000" />
-      <workItem from="1605071901684" duration="3708000" />
+      <workItem from="1605071901684" duration="5141000" />
     </task>
     <servers />
   </component>
@@ -217,9 +211,9 @@
       <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state x="1080" y="452" width="457" height="561" key="NewPhpClassDialog/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605024496693" />
-    <state x="908" y="468" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1605074156755">
+    <state x="908" y="468" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1605077652872">
       <screen x="67" y="27" width="2493" height="1413" />
     </state>
-    <state x="908" y="468" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605074156755" />
+    <state x="908" y="468" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.2493.1413/2560.0.1920.1200@67.27.2493.1413" timestamp="1605077652872" />
   </component>
 </project>

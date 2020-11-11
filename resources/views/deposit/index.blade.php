@@ -27,7 +27,7 @@
                                 <td>{{$deposit->percent}}</td>
                                 <td>{{$deposit->accrue_times}}</td>
                                 <td>{{$deposit->accrue_times * $deposit->invested * $deposit->percent / 100}}</td>
-                                <td>{{$deposit->active = 0 ? 'Closed' : 'Active'}}</td>
+                                <td>{{$deposit->active == 0 ? 'Closed' : 'Active'}}</td>
                                 <td>{{$deposit->created_at}}</td>
                             </tr>
                         @endforeach
