@@ -25,8 +25,7 @@ class UserTransaction
                 'user_id' => $user->id
             ]);
 
-            $user->wallet->balance += $amount;
-            $user->wallet->save();
+            $this->changeBalance($user->wallet, $amount);
 
         }, 3);
     }
@@ -39,12 +38,10 @@ class UserTransaction
     {
         DB::transaction(function () use ($user, $amount) {
 
-            $user->wallet->balance -= $amount;
-            $user->wallet->save();
-
-            $wallet = Wallet::where('user_id', $user->id)->first();
-            if ($wallet->balance < 0)
+            if ($user->wallet->balance - $amount< 0)
                 throw new \DomainException('Insufficient points!');
+
+            $this->changeBalance($user->wallet, -$amount);
 
             $deposit = new Deposit([
                 'wallet_id' => $user->wallet->id,
@@ -74,8 +71,7 @@ class UserTransaction
             $amount = $deposit->invested * $deposit->percent / 100;
             $wallet = Wallet::findorfail($deposit->wallet_id);
 
-            $wallet->balance += $amount;
-            $wallet->save();
+            $this->changeBalance($wallet, $amount);
 
             $deposit->accrue_times += 1;
             if ($deposit->accrue_times >= config('site-param.max_accrue_times'))
@@ -102,5 +98,11 @@ class UserTransaction
     private function createTransaction(array $transactionData)
     {
         return (new Transaction($transactionData))->save();
+    }
+
+    private function changeBalance(Wallet $wallet, float $amount)
+    {
+        $wallet->balance += $amount;
+        $wallet->save();
     }
 }
