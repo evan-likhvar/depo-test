@@ -75,6 +75,7 @@ class UserTransaction
     public function createAccrue(Deposit $deposit): void
     {
         DB::transaction(function () use ($deposit) {
+
             $amount = $deposit->invested * $deposit->percent / 100;
             $wallet = Wallet::findOrFail($deposit->wallet_id);
 
