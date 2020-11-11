@@ -6,17 +6,22 @@ use App\Models\Deposit;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Wallet;
+use DomainException;
 use Illuminate\Support\Facades\DB;
 
 class UserTransaction
 {
     /**
+     * Balance replenishment
+     *
      * @param User $user
      * @param float $amount
      */
     public function createEnter(User $user, float $amount): void
     {
         DB::transaction(function () use ($user, $amount) {
+
+            $this->changeBalance($user->wallet, $amount);
 
             $this->createTransaction([
                 'type' => Transaction::TRANSACTION_ENTER,
@@ -25,12 +30,12 @@ class UserTransaction
                 'user_id' => $user->id
             ]);
 
-            $this->changeBalance($user->wallet, $amount);
-
-        }, 3);
+        }, config('site-param.transaction_attempts'));
     }
 
     /**
+     * Creates a new user deposit
+     *
      * @param User $user
      * @param float $amount
      */
@@ -38,8 +43,8 @@ class UserTransaction
     {
         DB::transaction(function () use ($user, $amount) {
 
-            if ($user->wallet->balance - $amount< 0)
-                throw new \DomainException('Insufficient points!');
+            if ($user->wallet->balance < $amount)
+                throw new DomainException('Insufficient points!');
 
             $this->changeBalance($user->wallet, -$amount);
 
@@ -47,7 +52,7 @@ class UserTransaction
                 'wallet_id' => $user->wallet->id,
                 'invested' => $amount,
                 'percent' => Deposit::DEFAULT_PERCENT,
-                'active' => 1,
+                'active' => true,
             ]);
             $user->deposits()->save($deposit);
 
@@ -59,23 +64,25 @@ class UserTransaction
                 'user_id' => $user->id
             ]);
 
-        }, 2);
+        }, config('site-param.transaction_attempts'));
     }
 
     /**
+     * Accrual of interest on the deposit
+     *
      * @param Deposit $deposit
      */
     public function createAccrue(Deposit $deposit): void
     {
         DB::transaction(function () use ($deposit) {
             $amount = $deposit->invested * $deposit->percent / 100;
-            $wallet = Wallet::findorfail($deposit->wallet_id);
+            $wallet = Wallet::findOrFail($deposit->wallet_id);
 
             $this->changeBalance($wallet, $amount);
 
-            $deposit->accrue_times += 1;
+            $deposit->accrue_times++;
             if ($deposit->accrue_times >= config('site-param.max_accrue_times'))
-                $deposit->active = 0;
+                $deposit->active = false;
             $deposit->save();
 
             $this->createTransaction([
@@ -88,19 +95,26 @@ class UserTransaction
                 'user_id' => $deposit->user_id
             ]);
 
-        }, 2);
+        }, config('site-param.transaction_attempts'));
     }
 
     /**
+     * Creates the transaction
+     *
      * @param array $transactionData
-     * @return bool
      */
-    private function createTransaction(array $transactionData)
+    private function createTransaction(array $transactionData): void
     {
-        return (new Transaction($transactionData))->save();
+        (new Transaction($transactionData))->save();
     }
 
-    private function changeBalance(Wallet $wallet, float $amount)
+    /**
+     * Changes the user's balance
+     *
+     * @param Wallet $wallet
+     * @param float $amount
+     */
+    private function changeBalance(Wallet $wallet, float $amount): void
     {
         $wallet->balance += $amount;
         $wallet->save();
